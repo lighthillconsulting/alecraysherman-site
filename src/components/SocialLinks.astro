@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: "https://open.spotify.com/artist/", label: "Spotify" },
+  { href: "https://music.apple.com/", label: "Apple Music" },
+  { href: "https://www.youtube.com/@alecraysherman", label: "YouTube" },
+  { href: "https://www.instagram.com/alec.ray.sherman/", label: "Instagram" },
+];
+---
+
+<ul class="flex flex-wrap gap-4 text-sm">
+  {
+    links.map((l) => (
+      <li>
+        <a
+          class="underline-offset-4 hover:underline"
+          href={l.href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {l.label}
+        </a>
+      </li>
+    ))
+  }
+</ul>

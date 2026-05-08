@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+---
+
+<Layout
+  title="Alec Ray Sherman"
+  description="Toronto-based singer-songwriter. Listen to Rose Coloured Glasses."
+>
+  <section class="mx-auto max-w-5xl px-6 py-20">
+    <div class="grid gap-12 sm:grid-cols-2 sm:items-center">
+      <div>
+        <p class="text-sm uppercase tracking-widest text-neutral-500">
+          New Album
+        </p>
+        <h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
+          Rose Coloured Glasses
+        </h1>
+        <p class="mt-6 max-w-md text-lg text-neutral-700">
+          A rapidly-rising independent artist, using catchy hooks and emotive
+          lyrics to create a seamless blend of indie rock, pop, singer-songwriter,
+          and more.
+        </p>
+        <div class="mt-8">
+          <SocialLinks />
+        </div>
+      </div>
+      <div
+        class="aspect-square w-full rounded-md bg-neutral-200"
+        aria-label="Artist photo placeholder"
+      >
+      </div>
+    </div>
+  </section>
+</Layout>

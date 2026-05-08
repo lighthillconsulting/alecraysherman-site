@@ -1,0 +1,27 @@
+---
+import SocialLinks from "./SocialLinks.astro";
+---
+
+<footer class="mt-24 border-t border-neutral-200">
+  <div
+    class="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between"
+  >
+    <div class="space-y-1 text-sm">
+      <p>
+        <a
+          class="hover:underline"
+          href="mailto:murdermysteryrecordings@gmail.com"
+        >
+          murdermysteryrecordings@gmail.com
+        </a>
+      </p>
+      <p>
+        <a class="hover:underline" href="tel:+16479930884">647-993-0884</a>
+      </p>
+    </div>
+    <SocialLinks />
+  </div>
+  <div class="mx-auto max-w-5xl px-6 pb-6 text-xs text-neutral-500">
+    &copy; {new Date().getFullYear()} Alec Ray Sherman.
+  </div>
+</footer>

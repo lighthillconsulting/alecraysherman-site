@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pressQuotes = [
+  {
+    quote:
+      "These songs sound uniquely amazing and everyone should be excited to hear them.",
+    source: "Jon Savard, RHC Music",
+  },
+  {
+    quote:
+      "He brightens the alternative rock scene with his sound full of emotion and talent.",
+    source: "Right Chord Music",
+  },
+  {
+    quote:
+      "Through his heartfelt delivery and introspective lyricism, he allows listeners to immerse themselves in their own experiences of love, loss, and personal growth.",
+    source: "Bored City",
+  },
+];
+---
+
+<Layout title="About — Alec Ray Sherman">
+  <section class="mx-auto max-w-3xl px-6 py-20">
+    <h1 class="text-4xl font-semibold tracking-tight">Meet Alec</h1>
+
+    <div class="mt-8 space-y-5 text-lg text-neutral-700">
+      <p>
+        Alec is a Toronto-based singer-songwriter known for dynamic, emotionally
+        resonant tracks spanning from intimate love songs to powerful anthems. He
+        connects with audiences through sincere lyrics and engaging live
+        performances.
+      </p>
+      <p>
+        He has appeared at major Canadian venues including Massey Hall, Lee's
+        Palace, the Horseshoe Tavern, Supermarket, and The Ivy. He gained
+        recognition at Indie Week and Departure Fest (2018-2019 lineups).
+      </p>
+      <p>
+        His debut album <em>Rose Coloured Glasses</em> (July 2023) draws sonic
+        inspiration from artists like fun., The Band CAMINO, Valley, and
+        Marianas Trench. Produced at RHC Music in Toronto, the record has
+        received international press coverage and surpassed 20,000 Spotify
+        plays.
+      </p>
+    </div>
+
+    <h2 class="mt-16 text-2xl font-semibold tracking-tight">Press</h2>
+    <ul class="mt-6 space-y-6">
+      {
+        pressQuotes.map((q) => (
+          <li class="border-l-2 border-neutral-300 pl-5">
+            <p class="text-lg italic text-neutral-800">"{q.quote}"</p>
+            <p class="mt-2 text-sm text-neutral-500">— {q.source}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>
