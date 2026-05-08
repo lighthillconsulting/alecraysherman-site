@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import SocialLinks from "../components/SocialLinks.astro";
+import heroPhoto from "../assets/Alec_Jon_Studio-20.jpg";
 ---
 
 <Layout
@@ -11,7 +13,7 @@ import SocialLinks from "../components/SocialLinks.astro";
     <div class="grid gap-12 sm:grid-cols-2 sm:items-center">
       <div>
         <p class="text-sm uppercase tracking-widest text-neutral-500">
-          New Album
+          Out Now
         </p>
         <h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
           Rose Coloured Glasses
@@ -25,11 +27,14 @@ import SocialLinks from "../components/SocialLinks.astro";
           <SocialLinks />
         </div>
       </div>
-      <div
-        class="aspect-square w-full rounded-md bg-neutral-200"
-        aria-label="Artist photo placeholder"
-      >
-      </div>
+      <Image
+        src={heroPhoto}
+        alt="Alec Ray Sherman in the studio"
+        widths={[400, 800, 1200]}
+        sizes="(min-width: 640px) 50vw, 100vw"
+        class="aspect-square w-full rounded-md object-cover"
+        loading="eager"
+      />
     </div>
   </section>
 </Layout>

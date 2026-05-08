@@ -1,5 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Layout from "../layouts/Layout.astro";
+
+const galleryGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/{concert-*.jpg,Alec_Sony_*.jpg,Alec_BeachmanNight-3.jpg}",
+  { eager: true },
+);
+const gallery = Object.values(galleryGlob).map((m) => m.default);
 
 const pressClippings = [
   { name: "Bored City", url: "#" },
@@ -10,9 +18,9 @@ const pressClippings = [
 ---
 
 <Layout title="Press Kit — Alec Ray Sherman">
-  <section class="mx-auto max-w-3xl px-6 py-20">
+  <section class="mx-auto max-w-5xl px-6 py-20">
     <h1 class="text-4xl font-semibold tracking-tight">Press Kit</h1>
-    <p class="mt-6 text-lg text-neutral-700">
+    <p class="mt-6 max-w-2xl text-lg text-neutral-700">
       Press appearances and a photo gallery. You may notice a theme of
       heart-shaped glasses throughout — indicative of the title of the record:
       <em>Rose Coloured Glasses</em>.
@@ -43,6 +51,19 @@ const pressClippings = [
     </ul>
 
     <h2 class="mt-16 text-2xl font-semibold tracking-tight">Action Shots</h2>
-    <p class="mt-3 text-neutral-600">Concert photo gallery coming soon.</p>
+    <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        gallery.map((src) => (
+          <Image
+            src={src}
+            alt="Live performance"
+            widths={[400, 800]}
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            class="aspect-[4/3] w-full rounded-md object-cover"
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
   </section>
 </Layout>
