@@ -1,22 +1,35 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+
 const links = [
   { href: "/about", label: "About" },
-  { href: "/", label: "Music" },
+  { href: "/music", label: "Music" },
   { href: "/press-kit", label: "Press Kit" },
+  { href: "#contact", label: "Contact" },
 ];
 ---
 
-<header class="border-b border-neutral-200">
-  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-    <a href="/" class="text-lg font-semibold tracking-tight">
-      Alec Ray Sherman
+<header class="border-b border-neutral-200 bg-white">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="flex items-center gap-3" aria-label="Home">
+      <Image
+        src={logo}
+        alt="Alec Ray Sherman"
+        widths={[150, 300]}
+        sizes="151px"
+        class="h-10 w-auto"
+      />
     </a>
     <nav>
-      <ul class="flex gap-6 text-sm">
+      <ul
+        class="flex gap-7 text-sm uppercase tracking-wider"
+        style="font-family: 'Questrial', system-ui, sans-serif;"
+      >
         {
           links.map((l) => (
             <li>
-              <a class="hover:underline" href={l.href}>
+              <a class="hover:text-orange-500" href={l.href}>
                 {l.label}
               </a>
             </li>

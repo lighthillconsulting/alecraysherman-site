@@ -1,40 +1,57 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import SocialLinks from "../components/SocialLinks.astro";
-import heroPhoto from "../assets/Alec_Jon_Studio-20.jpg";
+import hero from "../assets/hero-portrait.jpg";
+import albumCover from "../assets/album-cover.png";
 ---
 
 <Layout
-  title="Alec Ray Sherman"
-  description="Toronto-based singer-songwriter. Listen to Rose Coloured Glasses."
+  title="Music | Alec Ray Sherman"
+  description="Toronto-based singer-songwriter. Rose Coloured Glasses, out July 21."
 >
-  <section class="mx-auto max-w-5xl px-6 py-20">
-    <div class="grid gap-12 sm:grid-cols-2 sm:items-center">
-      <div>
-        <p class="text-sm uppercase tracking-widest text-neutral-500">
-          Out Now
-        </p>
-        <h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-          Rose Coloured Glasses
-        </h1>
-        <p class="mt-6 max-w-md text-lg text-neutral-700">
-          A rapidly-rising independent artist, using catchy hooks and emotive
-          lyrics to create a seamless blend of indie rock, pop, singer-songwriter,
-          and more.
-        </p>
-        <div class="mt-8">
-          <SocialLinks />
-        </div>
-      </div>
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="grid gap-12 md:grid-cols-2 md:items-center">
       <Image
-        src={heroPhoto}
-        alt="Alec Ray Sherman in the studio"
+        src={hero}
+        alt="Alec Ray Sherman"
         widths={[400, 800, 1200]}
-        sizes="(min-width: 640px) 50vw, 100vw"
-        class="aspect-square w-full rounded-md object-cover"
+        sizes="(min-width: 768px) 50vw, 100vw"
+        class="aspect-[590/852] w-full rounded-sm object-cover"
         loading="eager"
       />
+      <div>
+        <h1
+          class="text-5xl font-normal leading-tight tracking-wide sm:text-6xl"
+          style="font-family: 'Questrial', system-ui, sans-serif;"
+        >
+          Alec Ray Sherman
+        </h1>
+        <a
+          href="/music"
+          class="mt-8 inline-flex items-center justify-center rounded-full px-7 py-3 text-sm uppercase tracking-widest text-white transition hover:opacity-90"
+          style="background-color: #ff8044; font-family: 'Questrial', system-ui, sans-serif;"
+        >
+          Listen Now
+        </a>
+        <p class="mt-10 text-base leading-relaxed text-neutral-700">
+          Starting July 21, find <em>Rose Coloured Glasses</em> anywhere you get
+          your music!
+        </p>
+        <p class="mt-5 max-w-md text-base leading-relaxed text-neutral-700">
+          A rapidly-rising independent artist, using catchy hooks and emotive
+          lyrics to create a seamless blend of indie rock, pop,
+          singer/songwriter, and more.
+        </p>
+        <div class="mt-10">
+          <Image
+            src={albumCover}
+            alt="Rose Coloured Glasses album cover"
+            widths={[260, 520]}
+            sizes="260px"
+            class="h-auto w-64 rounded-sm shadow-md"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </Layout>

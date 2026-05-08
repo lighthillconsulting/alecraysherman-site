@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title = "Alec Ray Sherman",
-  description = "Toronto-based singer-songwriter. Indie rock, pop, singer-songwriter.",
+  description = "Toronto-based singer-songwriter. Listen to Rose Coloured Glasses.",
 } = Astro.props;
 ---
 
@@ -25,9 +25,20 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Questrial&family=Nunito+Sans:wght@300;400;600;700&display=swap"
+    />
+
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-white text-neutral-900 antialiased">
+  <body
+    class="min-h-screen bg-white text-neutral-900 antialiased"
+    style="font-family: 'Nunito Sans', system-ui, sans-serif;"
+  >
     <Nav />
     <main>
       <slot />

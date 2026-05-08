@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import albumCover from "../assets/album-cover.png";
+
+const albumLinks = [
+  {
+    label: "Spotify",
+    href: "https://open.spotify.com/album/55AeysFvHKcwZDzUGPoWRE",
+  },
+  {
+    label: "Apple Music",
+    href: "https://music.apple.com/ca/artist/alec-ray-sherman/1254102346",
+  },
+];
+
+const oneNightLinks = [
+  {
+    label: "Spotify",
+    href: "https://open.spotify.com/track/1hT0gG2OaC0LrIrIIBDANK",
+  },
+  {
+    label: "Apple Music",
+    href: "https://music.apple.com/ca/album/one-night/1670745974",
+  },
+  {
+    label: "SoundCloud",
+    href: "https://soundcloud.com/alecraysherman/05-one-night-cs-master-v2-explicit/s-efUFyWn8fKw",
+  },
+];
+
+const followLinks = [
+  {
+    label: "Follow on Spotify",
+    href: "https://open.spotify.com/artist/2dmceYZmb1Br8rTXBGa510",
+  },
+  {
+    label: "Follow on Apple Music",
+    href: "https://music.apple.com/ca/artist/alec-ray-sherman/1254102346",
+  },
+];
+---
+
+<Layout title="Music | Alec Ray Sherman">
+  <section class="mx-auto max-w-5xl px-6 py-20">
+    <h1
+      class="text-5xl font-normal tracking-wide"
+      style="font-family: 'Questrial', system-ui, sans-serif;"
+    >
+      The Music
+    </h1>
+
+    <div class="mt-16 grid items-start gap-10 sm:grid-cols-[260px_1fr]">
+      <Image
+        src={albumCover}
+        alt="Rose Coloured Glasses album cover"
+        widths={[260, 520]}
+        sizes="260px"
+        class="h-auto w-full rounded-sm shadow-md"
+      />
+      <div>
+        <h2
+          class="text-3xl font-normal tracking-wide"
+          style="font-family: 'Questrial', system-ui, sans-serif;"
+        >
+          Rose Coloured Glasses
+        </h2>
+        <p class="mt-3 text-neutral-700">
+          Check out the record wherever you get your music:
+        </p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          {
+            albumLinks.map((l) => (
+              <a
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                class="rounded-full border border-neutral-900 px-5 py-2 text-sm uppercase tracking-widest hover:bg-neutral-900 hover:text-white"
+                style="font-family: 'Questrial', system-ui, sans-serif;"
+              >
+                {l.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-20">
+      <h2
+        class="text-3xl font-normal tracking-wide"
+        style="font-family: 'Questrial', system-ui, sans-serif;"
+      >
+        One Night
+      </h2>
+      <p class="mt-3 text-neutral-700">
+        If you missed the single, find it on:
+      </p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        {
+          oneNightLinks.map((l) => (
+            <a
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-full border border-neutral-900 px-5 py-2 text-sm uppercase tracking-widest hover:bg-neutral-900 hover:text-white"
+              style="font-family: 'Questrial', system-ui, sans-serif;"
+            >
+              {l.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-20 border-t border-neutral-200 pt-10">
+      <p class="text-neutral-700">Follow me on Spotify and/or Apple Music:</p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        {
+          followLinks.map((l) => (
+            <a
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-full px-5 py-2 text-sm uppercase tracking-widest text-white hover:opacity-90"
+              style="background-color: #ff8044; font-family: 'Questrial', system-ui, sans-serif;"
+            >
+              {l.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

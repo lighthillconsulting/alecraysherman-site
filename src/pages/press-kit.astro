@@ -1,65 +1,159 @@
 ---
 import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 import Layout from "../layouts/Layout.astro";
+import showVideo1 from "../assets/show-video-1.png";
+import showVideo2 from "../assets/show-video-2.png";
+import showVideo3 from "../assets/show-video-3.png";
+import pressClip1 from "../assets/press-clip-1.png";
+import pressClip2 from "../assets/press-clip-2.png";
+import pressClip3 from "../assets/press-clip-3.png";
+import pressClip4 from "../assets/press-clip-4.png";
+import action1 from "../assets/action-1.jpg";
+import action2 from "../assets/action-2.jpg";
+import action3 from "../assets/action-3.jpg";
+import action4 from "../assets/action-4.jpg";
+import action5 from "../assets/action-5.jpg";
 
-const galleryGlob = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/{concert-*.jpg,Alec_Sony_*.jpg,Alec_BeachmanNight-3.jpg}",
-  { eager: true },
-);
-const gallery = Object.values(galleryGlob).map((m) => m.default);
+const showVideos = [
+  {
+    src: showVideo1,
+    title: "One Night at Lee's Palace, August 4th, 2023",
+    href: "https://www.youtube.com/@alecraysherman",
+  },
+  {
+    src: showVideo2,
+    title: "Old Clothes at Lee's Palace, August 4th, 2023",
+    href: "https://www.youtube.com/@alecraysherman",
+  },
+  {
+    src: showVideo3,
+    title:
+      "Headlights & Rose Coloured Glasses at Supermarket Bar & Variety, August 8th, 2023",
+    href: "https://www.youtube.com/@alecraysherman",
+  },
+];
 
 const pressClippings = [
-  { name: "Bored City", url: "#" },
-  { name: "Right Chord Music", url: "#" },
-  { name: "Roadie Music", url: "#" },
-  { name: "Dropout Entertainment", url: "#" },
+  {
+    src: pressClip1,
+    href: "https://boredcity.co/alec-ray-sherman-headlights/",
+    label: "Bored City",
+  },
+  {
+    src: pressClip2,
+    href: "https://www.rightchordmusic.co.uk/alec-ray-sherman-one-night/",
+    label: "Right Chord Music",
+  },
+  {
+    src: pressClip3,
+    href: "https://roadie-music.com/alec-ray-sherman-confira-novo-single-one-night/",
+    label: "Roadie Music",
+  },
+  {
+    src: pressClip4,
+    href: "https://dropoutentertainment.ca/2019/01/alec-ray-sherman-live-the-paddock/",
+    label: "Dropout Entertainment",
+  },
 ];
+
+const actionShots = [action1, action2, action3, action4, action5];
 ---
 
-<Layout title="Press Kit — Alec Ray Sherman">
-  <section class="mx-auto max-w-5xl px-6 py-20">
-    <h1 class="text-4xl font-semibold tracking-tight">Press Kit</h1>
-    <p class="mt-6 max-w-2xl text-lg text-neutral-700">
-      Press appearances and a photo gallery. You may notice a theme of
-      heart-shaped glasses throughout — indicative of the title of the record:
-      <em>Rose Coloured Glasses</em>.
+<Layout title="Press Kit | Alec Ray Sherman">
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <h1
+      class="text-5xl font-normal tracking-wide"
+      style="font-family: 'Questrial', system-ui, sans-serif;"
+    >
+      Press Kit
+    </h1>
+    <p class="mt-6 max-w-3xl text-base leading-relaxed text-neutral-700">
+      Check out Alec's press appearances and photo gallery. You may notice a
+      theme of a pair of heart-shaped glasses throughout some of the material
+      here, indicative of the title of the record: <em>Rose Coloured Glasses</em
+      >.
     </p>
 
-    <h2 class="mt-16 text-2xl font-semibold tracking-tight">Show Videos</h2>
-    <p class="mt-3 text-neutral-600">
-      Performance clips coming soon — Lee's Palace (Aug 4, 2023) and Supermarket
-      Bar &amp; Variety (Aug 8, 2023).
+    <h2
+      class="mt-16 text-3xl font-normal tracking-wide"
+      style="font-family: 'Questrial', system-ui, sans-serif;"
+    >
+      Show Videos
+    </h2>
+    <p class="mt-2 text-sm text-neutral-600">
+      Click the stills to watch the full clips.
     </p>
-
-    <h2 class="mt-16 text-2xl font-semibold tracking-tight">Press Clippings</h2>
-    <ul class="mt-6 space-y-3">
+    <div class="mt-6 grid gap-6 md:grid-cols-3">
       {
-        pressClippings.map((p) => (
-          <li>
-            <a
-              class="underline-offset-4 hover:underline"
-              href={p.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {p.name}
-            </a>
-          </li>
+        showVideos.map((v) => (
+          <a
+            href={v.href}
+            target="_blank"
+            rel="noreferrer"
+            class="group block"
+          >
+            <Image
+              src={v.src}
+              alt={v.title}
+              widths={[400, 800]}
+              sizes="(min-width: 768px) 33vw, 100vw"
+              class="aspect-video w-full rounded-sm object-cover transition group-hover:opacity-90"
+            />
+            <p class="mt-3 text-sm text-neutral-700 group-hover:underline">
+              {v.title}
+            </p>
+          </a>
         ))
       }
-    </ul>
+    </div>
 
-    <h2 class="mt-16 text-2xl font-semibold tracking-tight">Action Shots</h2>
+    <h2
+      class="mt-20 text-3xl font-normal tracking-wide"
+      style="font-family: 'Questrial', system-ui, sans-serif;"
+    >
+      Press Clippings
+    </h2>
+    <p class="mt-2 text-sm text-neutral-600">Click the images to read on.</p>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        pressClippings.map((c) => (
+          <a
+            href={c.href}
+            target="_blank"
+            rel="noreferrer"
+            class="group block"
+            aria-label={c.label}
+          >
+            <Image
+              src={c.src}
+              alt={c.label}
+              widths={[300, 600]}
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              class="aspect-[451/205] w-full rounded-sm border border-neutral-200 object-cover transition group-hover:opacity-90"
+            />
+            <p class="mt-2 text-sm text-neutral-600 group-hover:underline">
+              {c.label}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+
+    <h2
+      class="mt-20 text-3xl font-normal tracking-wide"
+      style="font-family: 'Questrial', system-ui, sans-serif;"
+    >
+      Action Shots
+    </h2>
     <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {
-        gallery.map((src) => (
+        actionShots.map((src) => (
           <Image
             src={src}
             alt="Live performance"
             widths={[400, 800]}
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            class="aspect-[4/3] w-full rounded-md object-cover"
+            class="aspect-[4/3] w-full rounded-sm object-cover"
             loading="lazy"
           />
         ))

@@ -1,13 +1,28 @@
 ---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
 const links = [
-  { href: "https://open.spotify.com/artist/", label: "Spotify" },
-  { href: "https://music.apple.com/", label: "Apple Music" },
+  {
+    href: "https://open.spotify.com/artist/2dmceYZmb1Br8rTXBGa510",
+    label: "Spotify",
+  },
+  {
+    href: "https://music.apple.com/ca/artist/alec-ray-sherman/1254102346",
+    label: "Apple Music",
+  },
   { href: "https://www.youtube.com/@alecraysherman", label: "YouTube" },
-  { href: "https://www.instagram.com/alec.ray.sherman/", label: "Instagram" },
+  {
+    href: "https://www.instagram.com/alec.ray.sherman",
+    label: "Instagram",
+  },
 ];
 ---
 
-<ul class="flex flex-wrap gap-4 text-sm">
+<ul class={`flex flex-wrap gap-5 text-sm ${className}`}>
   {
     links.map((l) => (
       <li>
