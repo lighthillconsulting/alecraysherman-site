@@ -6,12 +6,16 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title = "Alec Ray Sherman",
   description = "Toronto-based singer-songwriter. Listen to Rose Coloured Glasses.",
+  image,
 } = Astro.props;
+
+const imageUrl = image ? new URL(image, Astro.site ?? Astro.url).href : undefined;
 ---
 
 <!doctype html>
@@ -25,6 +29,8 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+    {imageUrl && <meta name="twitter:card" content="summary_large_image" />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
