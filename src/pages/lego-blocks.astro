@@ -55,6 +55,7 @@ const listenLinks = [
                 href={l.href}
                 target="_blank"
                 rel="noreferrer"
+                data-listen={l.label}
                 class="rounded-full px-7 py-3 text-center text-sm uppercase tracking-widest text-white transition hover:opacity-90"
                 style="background-color: #ff8044; font-family: 'Questrial', system-ui, sans-serif;"
               >
@@ -66,4 +67,11 @@ const listenLinks = [
       </div>
     </div>
   </section>
+  <script is:inline>
+    document.querySelectorAll("[data-listen]").forEach((a) =>
+      a.addEventListener("click", () => {
+        if (window.fbq) fbq("trackCustom", "ListenClick", { platform: a.dataset.listen, release: "Lego Blocks" });
+      }),
+    );
+  </script>
 </Layout>
