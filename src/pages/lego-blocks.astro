@@ -22,14 +22,14 @@ const listenLinks = [
   description="Lego Blocks, the new single from Alec Ray Sherman. Out now on Spotify and Apple Music."
   image={ogImage.src}
 >
-  <section class="mx-auto max-w-5xl px-6 py-20">
-    <div class="grid items-center gap-12 md:grid-cols-2">
+  <section class="mx-auto max-w-5xl px-6 py-8 md:py-20">
+    <div class="grid items-center gap-6 md:grid-cols-2 md:gap-12">
       <Image
         src={cover}
         alt="Lego Blocks single cover"
         widths={[400, 800, 1200]}
         sizes="(min-width: 768px) 50vw, 100vw"
-        class="aspect-square w-full rounded-sm object-cover shadow-md"
+        class="aspect-square w-3/5 rounded-sm object-cover shadow-md md:w-full"
         loading="eager"
       />
       <div>
@@ -47,7 +47,7 @@ const listenLinks = [
         </h1>
         <p class="mt-2 text-lg text-neutral-700">Alec Ray Sherman</p>
 
-        <div class="mt-10 flex flex-col gap-3 sm:max-w-xs">
+        <div class="mt-6 flex flex-col gap-3 sm:max-w-xs md:mt-10">
           {
             listenLinks.map((l) => (
               <a
